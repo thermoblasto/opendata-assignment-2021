@@ -1,0 +1,22 @@
+{
+  "name": "opendata-assignment",
+  "version": "1.0.0",
+  "description": "An app to visualize data from sensors along with history",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Khushboo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.2",
+    "mongoose": "^6.0.8"
+  }
+}
