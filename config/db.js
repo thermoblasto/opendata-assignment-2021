@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const  db = process.env.MONGODB_URI;
 
-
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
