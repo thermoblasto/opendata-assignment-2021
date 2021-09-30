@@ -1,7 +1,7 @@
 
-const tokenFromEnv = process.env.TOKEN;
+const token = process.env.TOKEN;
 const TOKEN = {
-  headers: { Authorization: `bearer ${tokenFromEnv}` },
+  headers: { Authorization: `bearer ${token}` },
 };
 
 const openDataURL = 'https://opendata.hopefully.works/api/events';

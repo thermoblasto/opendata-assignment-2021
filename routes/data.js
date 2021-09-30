@@ -7,23 +7,45 @@ const Data = require('../Models/data');
 
 
 setInterval(async() => {
-  var targetTime = new Date();
-  targetTime.setHours(targetTime.getHours() - 1);
-  console.log(targetTime);
 
-  const opendata = await axios.get(
-    util.openDataURL,
-    util.TOKEN
-  );
-  const { data } = opendata;
-  const newData = new Data(data);
-  await newData.save();
-  console.log(data);
-}, 180000);
+    //delete past data
+    try{
+        var targetTime = new Date();
+        targetTime.setHours(targetTime.getHours() - 1);
+        console.log(targetTime);
+        await Data.deleteMany({ createdAt: { $lt: targetTime } });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+    
 
-router.get('/', async (_req, res) => {
-  const data = await Data.find({});
-  res.json(data);
+    //API call to retrive new data and save to database
+    try {
+      const opendata = await axios.get(util.openDataURL, util.TOKEN);
+      const { data } = opendata;
+      const newData = new Data(data);
+      await newData.save();
+      console.log(data);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  
+}, 3600000);
+
+// @route    GET api/data
+// @desc     Get all data
+// @access   Private
+router.get('/', async (req, res) => {
+    try {
+      const data = await Data.find({});
+      res.status(200).json(data);
+    } catch (err) {
+      console.error(err.message);
+      res.status(400).send('Invalid signature');
+    }
+  
 });
 
 module.exports = router;
