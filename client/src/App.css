@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .App {
-  text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      /* height: 100%;  */
+      flex-direction: column;
+      justify-content: center;
+      /* background-color: #eeee; */
+      position: relative;
+}
+
+.rv-xy-plot__axis__title text {
+      fill: white;
+      font-size: 14px;
+}
+
+
+.rv-discrete-color-legend-item__title {
+      color: white;
+      font-size: 16px;
 }

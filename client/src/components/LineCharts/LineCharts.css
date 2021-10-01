@@ -1,0 +1,12 @@
+.linechart_container {
+    position: relative;
+    top: 50px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+}
+
+h2{
+    align-self: center;
+}

@@ -8,10 +8,10 @@ const Data = require('../Models/data');
 
 setInterval(async() => {
 
-    //delete past data
+    //deletes data older than 3 days
     try{
         var targetTime = new Date();
-        targetTime.setHours(targetTime.getHours() - 1);
+        targetTime.setDate(targetTime.getDate() - 4);
         console.log(targetTime);
         await Data.deleteMany({ createdAt: { $lt: targetTime } });
     } catch (err) {
