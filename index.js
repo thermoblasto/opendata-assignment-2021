@@ -7,8 +7,6 @@ const app = express();
 //conect database
 connectDB();
 
-app.get('/', (req, res) => res.send('API is Running'));
-
 //Define route
 app.use('/api/data', require('./routes/data'));
 
