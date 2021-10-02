@@ -1,5 +1,5 @@
+// This component will handle the date selection from UI
 import React from 'react';
-
 import './ChooseTime.css';
 
 const Header = ({ handleDate, selectedDate }) => {

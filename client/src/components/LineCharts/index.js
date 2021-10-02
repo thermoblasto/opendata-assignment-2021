@@ -1,3 +1,5 @@
+// This component will load the whole chart container
+
 import React from 'react';
 import Chart from '../Chart';
 
