@@ -9,14 +9,3 @@
       /* background-color: #eeee; */
       position: relative;
 }
-
-.rv-xy-plot__axis__title text {
-      fill: white;
-      font-size: 14px;
-}
-
-
-.rv-discrete-color-legend-item__title {
-      color: white;
-      font-size: 16px;
-}

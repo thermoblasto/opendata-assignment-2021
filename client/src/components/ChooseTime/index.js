@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Header.css';
+import './ChooseTime.css';
 
 const Header = ({ handleDate, selectedDate }) => {
   const currentDate = new Date();
@@ -19,7 +19,7 @@ const Header = ({ handleDate, selectedDate }) => {
   return (
     <div className='header'>
       <label>
-        Choose the Date:
+        Select the date:
         <select
           className='header_select'
           value={selectedDate}

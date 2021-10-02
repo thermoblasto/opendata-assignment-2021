@@ -1,18 +1,17 @@
+// Single chart component
 import React from 'react';
 import {Line} from 'react-chartjs-2';
-import 'react-vis/dist/style.css';
 
 import './Chart.css';
 
 const Chart = ({datas, color, sensor}) => {
 
   const timeArray = [];
-  for (let i = 0; i <= 24; i++) {
+  for (let i = 0; i < 24; i++) {
     timeArray.push(i);
   }
 
   return (
-    console.log(datas),
     (
       <div class='chart_container'>
         <Line
@@ -27,7 +26,7 @@ const Chart = ({datas, color, sensor}) => {
               },
             ],
           }}
-          width={490}
+          width={520}
           height={400}
           options={{
             maintainAspectRatio: false,

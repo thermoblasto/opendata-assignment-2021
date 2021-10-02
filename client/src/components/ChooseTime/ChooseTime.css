@@ -1,0 +1,23 @@
+.header {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      margin-top: 25px;
+      margin-left: -200px;
+      color: #333;
+      border-radius: 6px;
+      height: 60px;
+      font-size: 18px;
+      position: absolute;
+      top: 0;
+      width: 100%
+}
+
+.header_select {
+      color: #333;
+      font-size: 16px;
+      margin: 24px;
+      padding: 10px;
+      background-color: #eee;
+      
+}

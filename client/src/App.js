@@ -2,36 +2,37 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 import LineChart from './components/LineCharts';
-import Header from './components/Header';
+import ChooseTime from './components/ChooseTime';
 import './App.css'
-import 'react-vis/dist/style.css';
 
-const getOpenData = async () => {
+const getRawData = async () => {
   const response = await axios.get('/api/data');
   return response.data;
 };
 
 const App = () => {
-  const [openData, setOpenData] = useState([]);
+  const [rawData, setRawData] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date().getDate());
 
   useEffect(() => {
-    getOpenData().then((data) => {
-      setOpenData(data);
+    getRawData().then((data) => {
+      setRawData(data);
     });
   }, []);
 
-  const filteredData = openData.filter((data) => {
+  //This function will handle the date selection from application
+   const handleDate = (e) => {
+     setSelectedDate(Number(e.target.value));
+   };
+
+   //This function will fetch selected date data
+  const filteredData = rawData.filter((data) => {
     const date = new Date(data.createdAt).getDate();
     return date === selectedDate;
   });
 
-
-  const handleDate = (e) => {
-    setSelectedDate(Number(e.target.value));
-  };
-
-  const restructureData = (sensor) => {
+  // This function will structure the data in the form needed for charts
+  const structuredData = (sensor) => {
     return filteredData.map((data) => ({
       x: new Date(data.createdAt).getHours(),
       y: data[sensor] ? data[sensor] : 0,
@@ -40,8 +41,8 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Header handleDate={handleDate} selectedDate={selectedDate} />
-      <LineChart data={restructureData} />
+      <ChooseTime handleDate={handleDate} selectedDate={selectedDate} />
+      <LineChart data={structuredData} />
     </div>
   );
 };
