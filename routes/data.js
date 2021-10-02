@@ -3,7 +3,7 @@ const router = express.Router();
 const util = require('../config/util')
 const axios = require('axios');
 
-const Data = require('../Models/data');
+const Data = require('../models/data');
 
 
 setInterval(async() => {
