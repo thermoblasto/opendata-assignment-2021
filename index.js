@@ -10,9 +10,11 @@ connectDB();
 //Define route
 app.use('/api/data', require('./routes/data'));
 
+app.use(cors());
+
 //Serve static assets in production
 if(process.env.NODE_ENV==='production'){
-    //set static folder
+    //set static foldgiter
     app.use(express.static('client/build'));
 
     app.get('*', (req, res) =>{
