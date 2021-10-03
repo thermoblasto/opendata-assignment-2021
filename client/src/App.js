@@ -6,7 +6,7 @@ import ChooseTime from './components/ChooseTime';
 import './App.css'
 
 const getRawData = async () => {
-  const response = await axios.get('/api/data');
+  const response = await axios.get('http://localhost:5000/api/data');
   return response.data;
 };
 
