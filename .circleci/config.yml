@@ -14,18 +14,17 @@ jobs:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
-      - node/install:
-          npm-version: '14.17.6' 
+      - node/install
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   example-workflow:
     jobs:
-      - example-job
       - node/run:
            app-dir: ~/client 
            npm-run:  build 
       - node/run:
            app-dir: ~ 
            npm-run:  build 
+      - example-job
