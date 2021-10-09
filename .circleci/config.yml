@@ -22,6 +22,6 @@ workflows:
   example-workflow:
     jobs:
       - node/run:
-           app-dir:  ./opendata-assignment-2021 
+           app-dir:  circleci-project-setup/opendata-assignment-2021 
            npm-run:  build 
       - example-job
